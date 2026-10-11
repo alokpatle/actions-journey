@@ -1,0 +1,25 @@
+name: Environment Precedence Demo
+
+on:
+  push:
+
+env:
+  APP_NAME: journey
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    env:
+      LOG_LEVEL: info
+    steps:
+      - name: First step using workflow and job env
+        run: |
+          echo "APP_NAME: $APP_NAME"
+          echo "LOG_LEVEL: $LOG_LEVEL"
+
+      - name: Second step overriding LOG_LEVEL
+        env:
+          LOG_LEVEL: debug
+        run: |
+          echo "APP_NAME: $APP_NAME"
+          echo "LOG_LEVEL: $LOG_LEVEL"
