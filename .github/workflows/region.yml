@@ -1,0 +1,11 @@
+name: Deploy Region Workflow
+
+on:
+  push:
+
+jobs:
+  print-region:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo deploy region
+        run: echo "Deploy region is ${{ vars.DEPLOY_REGION }}"
